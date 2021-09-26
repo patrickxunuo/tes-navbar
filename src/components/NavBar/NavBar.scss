@@ -1,0 +1,45 @@
+.tes-nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  width: 100%;
+
+  .tes-nav {
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+
+    .tes-nav-ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      z-index: 4;
+
+      .tes-nav-li {
+        color: darkslategrey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        border-radius: 10px;
+        transition: opacity 0.5s ease-in-out;
+        cursor: pointer;
+      }
+
+    }
+
+    .tes-nav-backdrop {
+      position: absolute;
+      height: 30px;
+      border-radius: 10px;
+      background: lightgrey;
+      z-index: 5;
+      bottom: -4px;
+      cursor: pointer;
+      transition: left 0.8s cubic-bezier(0.755, 0.040, 0.355, 1.000),
+      width 0.7s cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.1s;
+    }
+
+  }
+}
