@@ -2,6 +2,7 @@ import babel from 'rollup-plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
+import commonjs from 'rollup-plugin-commonjs'
 import {terser} from 'rollup-plugin-terser'
 
 export default  [
@@ -30,6 +31,12 @@ export default  [
       external(),
       resolve(),
       terser(),
+      commonjs({
+        include: 'node_modules/**',
+        namedExports: {
+          'node_modules/react-is/index.js': ['isValidElementType']
+        }
+      })
     ]
   }
 ]

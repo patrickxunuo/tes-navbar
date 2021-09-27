@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {AnimatePresence, motion} from "framer-motion";
+import {Link} from 'react-router-dom'
 import './NavBar.css'
 
 export const NavBar = (props) => {
@@ -7,7 +8,7 @@ export const NavBar = (props) => {
   const [onLi, setOnLi] = useState(null);
   const [liInfo, setLiInfo] = useState([])
   const [parentX, setParentX] = useState(0)
-  const {navItem} = props
+  const {navItem, navLink, type} = props
 
   useEffect(() => {
     setLiInfo(navItem.map((item, index) => {
@@ -68,7 +69,26 @@ export const NavBar = (props) => {
               className="tes-nav-li"
               key={index}
             >
-              {item}
+              {navItem?.length === navLink?.length ?
+                <>
+                  {
+                    type === "link" &&
+                    <Link to={navLink[index]}>
+                      {item}
+                    </Link>
+                  }
+                  {
+                    type === "ancher" &&
+                    <a href={navLink[index]}>
+                      {item}
+                    </a>
+                  }
+                </>
+                :
+                <>
+                  item
+                </>
+              }
             </li>
           ))}
         </ul>
