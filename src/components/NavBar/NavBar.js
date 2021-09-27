@@ -69,7 +69,7 @@ export const NavBar = (props) => {
               className="tes-nav-li"
               key={index}
             >
-              {navItem?.length === navLink?.length ?
+              {navLink && navItem && navItem.length === navLink.length ?
                 <>
                   {
                     type === "link" &&
@@ -78,7 +78,7 @@ export const NavBar = (props) => {
                     </Link>
                   }
                   {
-                    type === "ancher" &&
+                    type === "anchor" &&
                     <a href={navLink[index]}>
                       {item}
                     </a>
@@ -86,7 +86,7 @@ export const NavBar = (props) => {
                 </>
                 :
                 <>
-                  item
+                  {item}
                 </>
               }
             </li>
